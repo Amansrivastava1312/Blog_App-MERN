@@ -7,7 +7,7 @@ function App() {
    <>
  
     <h1 className="text-3xl font-bold underline">
-     Blog App
+     Blog App mern
     </h1>
   
 
