@@ -16,6 +16,10 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: true,
           },
+          profilePicture :{
+            type:String,
+            default:"https://cdn.vectorstock.com/i/1000x1000/45/65/user-icon-human-person-sign-vector-20444565.webp"
+          }
     },{ timestamps: true }
 );
 
