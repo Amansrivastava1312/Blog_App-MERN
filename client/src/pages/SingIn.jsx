@@ -80,7 +80,7 @@ export default function SignIn() {
           <div>
           <Label value='Your Password'/>
             <TextInput
-            type='text'
+            type='password'
             placeholder='******'
             id='password'
             onChange={handleChange}
