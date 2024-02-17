@@ -19,6 +19,9 @@ const userSchema = new mongoose.Schema(
           profilePicture :{
             type:String,
             default:"https://cdn.vectorstock.com/i/1000x1000/45/65/user-icon-human-person-sign-vector-20444565.webp"
+          },isAdmin:{
+            type:Boolean,
+            default:false,
           }
     },{ timestamps: true }
 );
