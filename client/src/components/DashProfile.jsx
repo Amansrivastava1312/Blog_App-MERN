@@ -9,9 +9,10 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { useDispatch } from 'react-redux';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 
 export default function DashProfile() {
-  const {currentUser} = useSelector((state)=>state.user);
+  const {currentUser,error,loading} = useSelector((state)=>state.user);
   const [imageFile,setImageFile] = useState(null);
   const[imageFileURL, setImageFileURL]= useState(null);
   const [imageFileUploadProgress, setImageFileUploadProgress] = useState(null);
@@ -220,8 +221,23 @@ const handleSignout = async () => {
             placeholder='password'
             onChange={handleChange}/>
 
-          <Button type='submit' gradientDuoTone='purpleToBlue' outline> Update</Button>
-
+          <Button type='submit'
+           gradientDuoTone='purpleToBlue' 
+          outline
+          disabled={loading||imageFileUploading}
+          > {loading?'loading':'Update'}</Button>
+          {
+            currentUser.isAdmin && (
+              <Link to={'/create-post'}>
+              <Button type='button'
+              gradientDuoTone={'purpleToBlue'}
+              outline
+              className='w-full'>
+                      Create a post
+              </Button>
+              </Link>
+            )
+          }
       </form>
       {!updateUserError && (
       
