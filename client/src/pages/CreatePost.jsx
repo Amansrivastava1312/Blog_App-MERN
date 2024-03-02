@@ -12,14 +12,14 @@ import { useState } from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { useNavigate } from 'react-router-dom';
-
+import {useSelector} from 'react-redux';
 export default function CreatePost() {
   const [file, setFile] = useState(null);
   const [imageUploadProgress, setImageUploadProgress] = useState(null);
   const [imageUploadError, setImageUploadError] = useState(null);
   const [formData, setFormData] = useState({});
   const [publishError, setPublishError] = useState(null);
-
+  const {currentUser,error,loading} = useSelector((state)=>state.user);
   const navigate = useNavigate();
 
   const handleUpdloadImage = async () => {
@@ -59,6 +59,7 @@ export default function CreatePost() {
     }
   };
   const handleSubmit = async (e) => {
+    
     e.preventDefault();
     try {
       const res = await fetch('/api/post/create', {
@@ -82,6 +83,7 @@ export default function CreatePost() {
       setPublishError('Something went wrong');
     }
   };
+  console.log(currentUser.isAdmin);
   return (
     <div className='p-3 max-w-3xl mx-auto min-h-screen'>
       <h1 className='text-center text-3xl my-7 font-semibold'>Create a post</h1>
