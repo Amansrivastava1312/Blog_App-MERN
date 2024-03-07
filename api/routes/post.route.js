@@ -6,5 +6,5 @@ import { create } from "../controllers/post.contriller.js";
 const router = express.Router();
 
 router.post('/create' , verifyToken , create);
-
+router.post('/getposts',getPosts);
 export default router;
