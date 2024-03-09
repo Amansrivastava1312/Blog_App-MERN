@@ -4,6 +4,7 @@ import React ,{useEffect,useState}from 'react'
 import { Link, useParams } from 'react-router-dom'
 import PostCard from '../components/PostCard';
 import CallToAction from '../components/CallToAction';
+import CommentSection from '../components/CommentSection';
 
 export default function PostPage() {
   const { postSlug } = useParams();
@@ -88,7 +89,7 @@ export default function PostPage() {
       <div className='max-w-4xl mx-auto w-full'>
         <CallToAction />
       </div>
-      {/* <CommentSection postId={post._id} /> */}
+      <CommentSection postId={post._id} />
 
 
       <div className='flex flex-col justify-center items-center mb-5'>
