@@ -2,7 +2,7 @@ import { Button, Select, TextInput } from 'flowbite-react';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PostCard from '../components/PostCard';
-
+import {categories} from '../assets/categories.json'
 export default function Search() {
   const [sidebarData, setSidebarData] = useState({
     searchTerm: '',
@@ -130,10 +130,9 @@ export default function Search() {
               value={sidebarData.category}
               id='category'
             >
-              <option value='uncategorized'>Uncategorized</option>
-              <option value='reactjs'>React.js</option>
-              <option value='nextjs'>Next.js</option>
-              <option value='javascript'>JavaScript</option>
+              {categories.map((category) => (
+                <option key={category} value={category}>{category}</option>
+              ))}
             </Select>
           </div>
           <Button type='submit' outline gradientDuoTone='purpleToPink'>

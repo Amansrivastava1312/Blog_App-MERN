@@ -1,8 +1,9 @@
-import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react'
+import { Alert, Button, Checkbox, Label, Spinner, TextInput } from 'flowbite-react'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import OAuth from '../components/OAuth';
 export default function SignUp() {
+  const [isInterested, setIsInterested] = useState(false);
   const [formData, setFormData] = useState({});
   const [errorMessage, setErrorMessage] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -11,19 +12,24 @@ export default function SignUp() {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
   };
   // console.log(formData)
-
+  const handleCheckboxChange = () => {
+    console.log(isInterested)
+    setIsInterested(!isInterested);
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.username || !formData.email || !formData.password) {
       return setErrorMessage('Please fill out all fields.');
     }
+
+    const mergedData = { ...formData, isInterested };
     try {
       setLoading(true);
       setErrorMessage(null);
       const res = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(mergedData),
       });
       const data = await res.json();
       if (data.success === false) {
@@ -83,6 +89,15 @@ export default function SignUp() {
             id='password'
             onChange={handleChange}
             />
+          </div>
+          <div>
+          <Checkbox         
+        className=''
+        checked={isInterested}
+        onChange={handleCheckboxChange}
+      />
+            <Label className='ml-2' value="I'm interested in posting blogs on this website."/>
+        
           </div>
           <Button gradientDuoTone={'purpleToPink'} type='submit' disabled={loading} >
           {

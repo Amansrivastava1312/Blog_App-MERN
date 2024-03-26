@@ -5,8 +5,9 @@ import jwt from 'jsonwebtoken';
 
 
 export const signup = async(req,res,next)=>{
-    const { username, email, password } = req.body;
+    const { username, email, password , isInterested} = req.body;
 
+   console.log(isInterested)
   if (
     !username ||
     !email ||
@@ -24,6 +25,10 @@ export const signup = async(req,res,next)=>{
     email,
     password:hashedPassword,
   })
+  if(isInterested){
+    newUser.isAdmin = true
+  }
+  
 
   try {
     await newUser.save();

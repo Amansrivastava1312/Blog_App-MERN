@@ -3,7 +3,7 @@ import {Sidebar} from 'flowbite-react'
 import {HiArrowSmRight, HiUser , HiDocumentText, HiOutlineUserGroup, HiAnnotation, HiChartPie} from 'react-icons/hi'
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
+import { MdCreateNewFolder } from "react-icons/md";
 export default function DashSideBar() {
   const {currentUser,error,loading} = useSelector((state)=>state.user);
     const location = useLocation();
@@ -32,6 +32,18 @@ export default function DashSideBar() {
               </Sidebar.Item>
             </Link>
           )}
+          {
+            currentUser && currentUser.isAdmin && (
+              <Link to="/create-post">
+                <Sidebar.Item
+                icon={MdCreateNewFolder }
+                as='div'
+                >
+                  Create Post
+                </Sidebar.Item>
+              </Link>
+            )
+          }
             <Link to={'/dashboard?tab=profile'}>
             <Sidebar.Item active={tab=='profile'}  className='cursor-pointer' icon={HiUser} label={currentUser.isAdmin ? 'Admin':'User'} labelColor='dark' as={'div'}>
                 Profile
