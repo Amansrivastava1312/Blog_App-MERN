@@ -45,7 +45,7 @@ export default function DashSideBar() {
             )
           }
             <Link to={'/dashboard?tab=profile'}>
-            <Sidebar.Item active={tab=='profile'}  className='cursor-pointer' icon={HiUser} label={currentUser.isAdmin ? 'Admin':'User'} labelColor='dark' as={'div'}>
+            <Sidebar.Item active={tab=='profile'}  className='cursor-pointer' icon={HiUser} label={currentUser.isAdmin ? 'Creator':'User'} labelColor='dark' as={'div'}>
                 Profile
             </Sidebar.Item>
             </Link>

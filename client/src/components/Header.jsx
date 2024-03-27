@@ -59,6 +59,7 @@ export default function Header() {
         </span>
         Blog
       </Link>
+      {currentUser &&
       <form onSubmit={handleSubmit}>
         <TextInput
           type='text'
@@ -68,10 +69,11 @@ export default function Header() {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-      </form>
+      </form>}
+      {currentUser&& 
       <Button className='w-12 h-10 lg:hidden' color='gray' pill>
-        <AiOutlineSearch />
-      </Button>
+      <AiOutlineSearch />
+    </Button>}
       <div className='flex gap-2 md:order-2'>
         <Button
           className='w-12 h-10 hidden sm:inline'
@@ -117,8 +119,8 @@ export default function Header() {
         <Navbar.Link active={path === '/about'} as={'div'}>
           <Link to='/about'>About</Link>
         </Navbar.Link>
-        <Navbar.Link active={path === '/projects'} as={'div'}>
-          <Link to='/projects'>Projects</Link>
+        <Navbar.Link active={path === '/search'} as={'div'}>
+          <Link to='/search'>Blog's</Link>
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>

@@ -2,7 +2,7 @@ import { FaGithub, FaLinkedin, FaReact } from 'react-icons/fa';
 
 const About = () => {
   return (
-    <div className="container mx-auto px-8 py-12">
+    <div className="container mx-auto px-4 md:px-8 py-8 md:py-12">
       <div className="text-center mb-8">
         <FaReact className="inline-block text-6xl text-blue-600 dark:text-blue-400 mb-4" />
         <h1 className="text-4xl font-bold mb-2">About Me</h1>
@@ -23,7 +23,7 @@ const About = () => {
             GitHub
           </a>
           <a
-            href="www.linkedin.com/in/srivastava-aman-s"
+            href="https://www.linkedin.com/in/srivastava-aman-s-926938257/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-800 dark:text-gray-300 hover:text-gray-600 dark:hover:text-gray-200 flex items-center"

@@ -22,11 +22,11 @@ export default function FooterCom() {
               <Footer.Title title='About' />
               <Footer.LinkGroup col>
                 <Footer.Link
-                  href='https://www.100jsprojects.com'
+                  href='/about'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  100 JS Projects
+                  About me
                 </Footer.Link>
                 <Footer.Link
                   href='/about'
@@ -47,7 +47,7 @@ export default function FooterCom() {
                 >
                   Github
                 </Footer.Link>
-                <Footer.Link href="www.linkedin.com/in/srivastava-aman-s"
+                <Footer.Link href="https://www.linkedin.com/in/srivastava-aman-s-926938257/"
                  target='_blank'
                  rel='noopener noreferrer'>Linkedin</Footer.Link>
               </Footer.LinkGroup>
