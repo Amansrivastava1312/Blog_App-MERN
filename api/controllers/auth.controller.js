@@ -6,7 +6,12 @@ import jwt from 'jsonwebtoken';
 
 export const signup = async(req,res,next)=>{
     const { username, email, password , isInterested} = req.body;
+    const duplicateEmail = await User.findOne({email});
+    const duplicateUserName = await User.findOne({username});
 
+    if(duplicateUserName || duplicateEmail){
+     return next(errorHandler(400,'User Name or Email Already exist'))
+    }
    console.log(isInterested)
   if (
     !username ||
